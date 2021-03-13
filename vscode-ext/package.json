@@ -1,0 +1,27 @@
+{
+    "name": "cellang",
+    "displayName": "cellang",
+    "description": "Language support for cellang",
+    "author": "JanCraft",
+    "publisher": "JanCraft",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.54.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "cellang",
+            "aliases": ["Cellang", "cellang"],
+            "extensions": [".cll"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "cellang",
+            "scopeName": "source.cellang",
+            "path": "./syntaxes/cellang.tmLanguage.json"
+        }]
+    }
+}

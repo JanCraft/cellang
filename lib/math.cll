@@ -1,0 +1,7 @@
+square={:(x)x*x;};
+abs={:(x)if(less_than(x,0),{x*-1;},{x;});};
+pow={:(x,y)if(equals(y,1),{x;},{pow(x*x,y-1);});};
+sqrt={:(x)_={:(x,i)if(equals(x,i*i),{i;},{if(less_than(i*i,x),{_(x,i+1);},{i;});});};_(x,1);};
+fsqrt={:(x)_={:(x,i)if(equals(x,i*i),{i;},{if(less_than(i*i,x),{_(x,i+0.1);},{i;});});};_(x,1);};
+round={:(x)_={:(i)if(greater_than(i,x),{i;},{_(i+1);});};_(0);};
+roundf={:(x,stepsize)_={:(i)if(greater_than(i,x),{i;},{_(i+stepsize);});};_(0);};

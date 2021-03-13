@@ -1,0 +1,73 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Cellang",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#separator"
+		},
+		{
+			"include": "#terminator"
+		},
+		{
+			"include": "#double_quoted_strings"
+		},
+		{
+			"include": "#single_quoted_strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.cellang",
+				"match": "\\b(if|import|equals|less_than|print|greater_than|not|concat|None)\\b"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.cellang",
+				"match": "\\b(-)?[0-9.]+\\b"
+			}]
+		},
+		"separator": {
+			"patterns": [{
+				"name": "punctuation.separator.cellang",
+				"match": ","
+			}]
+		},
+		"termitator": {
+			"patterns": [{
+				"name": "punctuation.terminator.cellang",
+				"match": ";"
+			}]
+		},
+		"double_quoted_strings": {
+			"name": "string.quoted.double.cellang",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cellang",
+					"match": "\\\\."
+				}
+			]
+		},
+		"single_quoted_strings": {
+			"name": "string.quoted.single.cellang",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.cellang",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.cellang"
+}

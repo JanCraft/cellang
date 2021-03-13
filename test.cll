@@ -1,0 +1,14 @@
+import("lib/math.cll");
+import("lib/pair.cll");
+import("lib/list.cll");
+
+print("Hello World!");
+print(1.42 + 8.12);
+
+print(square(5));
+print(sqrt(25));
+
+mylist = list2('hello', 'world');
+mylist = append(mylist, 3);
+
+for(mylist, print);
