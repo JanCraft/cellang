@@ -1,22 +1,3 @@
-`def _scan(first_char, chars, allowed):
-ret = first_char
-p = chars.next
-while p is not None and re.match(allowed, p):
-    ret += chars.move_next()
-    p = chars.next
-return ret
-
-
-def _scan_string(delim, chars):
-ret = ""
-while chars.next != delim:
-    c = chars.move_next()
-    if c is None:
-        raise Exception("A string ran off the end of the program.")
-    ret += c
-chars.move_next()
-return ret`;
-
 function _scan(first_char, chars, allowed) {
     let ret = first_char;
     let p = chars.next.value;
@@ -58,7 +39,7 @@ export class Lexer {
             else if (IN(c, "(){},;=:")) ret(c, '');
             else if (IN(c, `'"`)) ret('string', _scan_string(c, chars));
             else if (c.match(/[.0-9]/)) ret('number', _scan(c, chars, /[.0-9]/))
-            else if (c.match(/[_a-zA-Z0-9]/)) ret('symbol', _scan(c, chars, /[_a-zA-Z0-9]/))
+            else if (c.match(/[_a-zA-Z0-9.]/)) ret('symbol', _scan(c, chars, /[_a-zA-Z0-9.]/))
             else throw new SyntaxError(`Unexpected token: (charcode ${c.charCodeAt(0)}) '${c}'`)
         }
 

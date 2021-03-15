@@ -1,0 +1,28 @@
+import('lib/std/pair.cll');
+
+std.list0 = {None};
+std.list1 = {:(a)             std.pair(a, None);};
+std.list2 = {:(a, b)          std.pair(a, std.list1(b));};
+std.list3 = {:(a, b, c)       std.pair(a, std.list2(b, c));};
+std.list4 = {:(a, b, c, d)    std.pair(a, std.list3(b, c, d));};
+std.list5 = {:(a, b, c, d, e) std.pair(a, std.list4(b, c, d, e));};
+std.prepend = std.pair;
+std.append =
+{:(lst, item)
+    if(equals(lst, None),
+    {
+        std.list1(item);
+    },
+    {
+        std.pair(std.pair_first(lst), std.append(std.pair_second(lst), item));
+    });
+};
+std.for = {:(xs, fn)
+    if(not(equals(xs, None)),
+    {
+        fn(std.pair_first(xs));
+        std.for(std.pair_second(xs), fn);
+    },
+    {
+    });
+};

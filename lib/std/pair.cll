@@ -1,0 +1,13 @@
+std.pair =
+    {:( f, s )
+        {:( which )
+            if( equals( which, "f" ),
+                {f;},
+                {s;}
+            );
+        };
+    };
+
+std.pair_first = {:(p) p("f");};
+
+std.pair_second = {:(p) p("s");};
